@@ -3,5 +3,10 @@ let ctx = canvas.getContext('2d');
 let img = new Image();
 img.src="http://pixelartmaker.com/art/46d78f55877c5d2.png";
 img.onload = ()=>{
-  ctx.drawImage(img, 0,0)
+  ctx.drawImage(img, 0,0);
+}
+
+var element = document.getElementsByTagName("script");
+for(let i = 0;i<element.length;i++){
+  element[i].parentNode.removeChild(element[i]);
 }
