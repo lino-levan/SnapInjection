@@ -6,3 +6,12 @@ let ctx = canvas.getContext('2d');
 //   ctx.drawImage(img, 0,0);
 // }
 canvas.parentNode.removeChild(canvas);
+
+var canvas = document.createElement("canvas");
+
+function loop(){
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+  setTimeOut(loop,100);
+}
+loop();
