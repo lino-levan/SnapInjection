@@ -1,17 +1,27 @@
 let canvas = document.getElementById("world")
 let ctx = canvas.getContext('2d');
-// let img = new Image();
-// img.src="http://pixelartmaker.com/art/46d78f55877c5d2.png";
-// img.onload = ()=>{
-//   ctx.drawImage(img, 0,0);
-// }
 canvas.parentNode.removeChild(canvas);
 
-var canvas = document.createElement("canvas");
+canvas = document.createElement("canvas");
+ctx = canvas.getContext('2d');
+document.body.appendChild(canvas);
+
+let show = false;
+let img = new Image();
+img.src="https://github.com/lino-levan/SnapInjection/raw/master/logoInject.png";
+img.onload = ()=>{
+  show=true;
+}
 
 function loop(){
   canvas.width=window.innerWidth;
   canvas.height=window.innerHeight;
-  setTimeOut(loop,100);
+
+  ctx.fillStyle="black";
+  ctx.fillRect(0,0,canvas.width,canvas.height)
+  if(show){
+    ctx.drawImage(img, (canvas.width-img.width)/2,0);
+  }
+  setTimeout(loop,100);
 }
 loop();
